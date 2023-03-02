@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "a2968a60-ee1c-4827-8fc5-fefdd3faec0b",
+		"name": "Postman Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 500 when given invalid data\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n  \"donor\": {\r\n    \"name\": \"sfdgsdf\",\r\n    \"idNumber\": \"1234561234567\",\r\n    \"dateOfBirth\": \"2001-03-02T18:18:40.791Z\"\r\n  }\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5291/Donate"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 when given valid data\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 10,\r\n  \"donor\": {\r\n    \"name\": \"sfdgsdf\",\r\n    \"idNumber\": \"1234561234567\",\r\n    \"dateOfBirth\": \"2001-03-02T18:18:40.791Z\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5291/Donate"
+			},
+			"response": []
+		}
+	]
+}
